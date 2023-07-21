@@ -10,15 +10,17 @@ const fetchMovieDetails = async movieId => {
 
     const smallPoster = data.poster_path;
     const title = data.title;
+    const user_score = data.vote_average;
     const overview = data.overview;
     const genres = data.genres.map(genre => genre.name).join(', ');
     const id = data.id;
 
     return {
+      smallPoster,
       title,
+      user_score,
       overview,
       genres,
-      smallPoster,
       id,
     };
   } catch (error) {

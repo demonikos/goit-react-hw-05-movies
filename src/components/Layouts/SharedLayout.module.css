@@ -1,0 +1,22 @@
+.Container {
+    max-width: 1280px;
+    padding-right: 32px;
+    padding-left: 32px;
+}
+
+/* .Header {
+
+} */
+
+.NavLink {
+    margin-right: 25px;
+    color: blueviolet;
+}
+
+/* .NavLink .active {
+    color: red;
+} */
+
+/* .Nav {
+    margin-right: 25px;
+} */
