@@ -10,7 +10,7 @@ const fetchMovieDetails = async movieId => {
 
     const smallPoster = data.poster_path;
     const title = data.title;
-    const user_score = data.vote_average;
+    const user_score = Math.round(data.vote_average * 10);
     const overview = data.overview;
     const genres = data.genres.map(genre => genre.name).join(', ');
     const id = data.id;
