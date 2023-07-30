@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Notify } from 'notiflix';
-// import { MovieDetails } from "../MovieDetails/MovieDetails";
 
 import { Searchbar } from 'components/Searchbar/Searchbar';
 
@@ -16,7 +15,6 @@ const Movie = () => {
 
   const onSubmit = event => {
     const inputQuery = event.target.elements.input.value.toLowerCase().trim();
-    // console.log(inputQuery);
     if (inputQuery === '') {
       Notify.info(
         `It seems you didn't write enything, please specify what exactly you are looking for`
@@ -55,7 +53,6 @@ const Movie = () => {
           console.log(error);
         }
       }
-
       searchMovies();
     }
   }, [queryParams]);
@@ -75,4 +72,4 @@ const Movie = () => {
   );
 };
 
-export default Movie
+export default Movie;

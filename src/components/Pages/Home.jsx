@@ -4,10 +4,8 @@ import { MovieList } from 'components/MovieList/MovieList';
 
 const Home = () => {
   const [filmList, setFilmList] = useState([]);
-//   const firstRender = useRef(true);
 
   useEffect(() => {
-
     async function getMovieList() {
       await fetchTrendingTodayMovies()
         .then(response => {
@@ -22,10 +20,10 @@ const Home = () => {
     <>
       <h1>Trending today</h1>
       <ul>
-        <MovieList filmList={filmList}/>
+        <MovieList filmList={filmList} />
       </ul>
     </>
   );
 };
 
-export default Home
+export default Home;

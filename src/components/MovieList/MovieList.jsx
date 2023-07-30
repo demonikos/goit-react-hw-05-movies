@@ -3,7 +3,6 @@ import { PropTypes } from 'prop-types';
 
 export const MovieList = ({ filmList }) => {
   const location = useLocation();
-  console.log(filmList);
   return (
     <>
       {filmList.map(elem => (

@@ -8,37 +8,34 @@ const Reviews = () => {
 
   useEffect(() => {
     async function getReviews() {
-      await fetchMovieReviews(movieId)
-        .then(response => {
-          console.log(response);
-          setMovieReviews(response.results);
-        })
-        .catch(error => console.log(error));
+      try {
+        const reviewsData = await fetchMovieReviews(movieId);
+        setMovieReviews(reviewsData);
+      } catch (error) {
+        console.log(error);
+      }
     }
     getReviews();
-    // console.log(movieCast)
   }, [movieId]);
 
-  console.log(movieReviews);
-
-  if (movieReviews.length === 0) {
+  if (movieReviews?.length === 0) {
     return <p>We don`t have any reviews for this movie</p>;
   }
 
   return (
     <>
-      {movieReviews.map(elem => {
-        return (
-          <ul>
+      <ul>
+        {movieReviews?.map(elem => {
+          return (
             <li key={elem.id}>
               <h3>Autor: {elem.author}</h3>
               <p>{elem.content}</p>
             </li>
-          </ul>
-        );
-      })}
+          );
+        })}
+      </ul>
     </>
   );
 };
 
-export default Reviews
+export default Reviews;

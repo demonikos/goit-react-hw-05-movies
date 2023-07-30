@@ -2,8 +2,6 @@ import { useEffect, useState, useRef, Suspense } from 'react';
 import { useLocation, Link, useParams, Outlet } from 'react-router-dom';
 
 import { fetchMovieDetails } from 'components/Api/fetch-movie-details';
-import Movie from 'components/Pages/Movie';
-// import { Cast } from 'components/Cast/Cast';
 
 const MovieDetails = () => {
   const [movieInfo, setMovieInfo] = useState();
@@ -11,10 +9,6 @@ const MovieDetails = () => {
   const { movieId } = useParams();
 
   const goBack = useRef(location.state?.from ?? '/movies');
-
-  // console.log(goBack)
-  // console.log(typeof(backLinkHref))
-  // console.log(location.state)
 
   useEffect(() => {
     async function getMovieInfo() {
@@ -26,8 +20,6 @@ const MovieDetails = () => {
     }
     getMovieInfo();
   }, [movieId]);
-
-  // console.log(movieInfo)
 
   const posterPath = `https://image.tmdb.org/t/p/original/${movieInfo?.smallPoster}`;
 
@@ -67,4 +59,4 @@ const MovieDetails = () => {
   );
 };
 
-export default MovieDetails
+export default MovieDetails;
