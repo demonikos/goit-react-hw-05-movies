@@ -7,11 +7,12 @@ const Home = () => {
 
   useEffect(() => {
     async function getMovieList() {
-      await fetchTrendingTodayMovies()
-        .then(response => {
-          setFilmList(response);
-        })
-        .catch(error => console.log(error));
+      try {
+        const movieList = await fetchTrendingTodayMovies();
+        setFilmList(movieList);
+      } catch (error) {
+        console.log(error);
+      }
     }
     getMovieList();
   }, []);

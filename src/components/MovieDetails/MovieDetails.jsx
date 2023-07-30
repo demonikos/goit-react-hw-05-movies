@@ -3,7 +3,7 @@ import { useLocation, Link, useParams, Outlet } from 'react-router-dom';
 
 import { fetchMovieDetails } from 'components/Api/fetch-movie-details';
 
-import css from './MovieDetails.module.css'
+import css from './MovieDetails.module.css';
 
 const MovieDetails = () => {
   const [movieInfo, setMovieInfo] = useState();
@@ -14,11 +14,12 @@ const MovieDetails = () => {
 
   useEffect(() => {
     async function getMovieInfo() {
-      await fetchMovieDetails(movieId)
-        .then(response => {
-          setMovieInfo(response);
-        })
-        .catch(error => console.log(error));
+      try {
+        const movieData = await fetchMovieDetails(movieId);
+        setMovieInfo(movieData);
+      } catch (error) {
+        console.log(error);
+      }
     }
     getMovieInfo();
   }, [movieId]);
@@ -33,8 +34,6 @@ const MovieDetails = () => {
         <img
           src={posterPath}
           alt={movieInfo?.title}
-          // width="240px"
-          // height="auto"
           className={css.PosterImg}
         ></img>
         <h1 className={css.MovieTitle}> {movieInfo?.title}</h1>
