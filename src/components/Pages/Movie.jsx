@@ -38,7 +38,6 @@ const Movie = () => {
         try {
           await fetchSearch(queryParams)
             .then(response => {
-              console.log(response);
               if (response.total_results === 0) {
                 Notify.warning(
                   'Sorry, there are no movies matching your search query. Please try again.'
