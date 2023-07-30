@@ -7,17 +7,7 @@ const fetchMovieCredits = async movieId => {
   try {
     const response = await axios.get(URL);
     const data = response.data;
-    const profile = data.profile_path;
-    const name = data.name;
-    const character = data.character;
-    const id = data.id;
-
-    return {
-      profile,
-      name,
-      character,
-      id,
-    };
+    return data;
   } catch (error) {
     console.log(error);
   }
