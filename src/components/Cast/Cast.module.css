@@ -1,0 +1,27 @@
+.CastList {
+display: flex;
+flex-wrap: wrap;
+gap: 20px
+}
+
+.CastItem {
+    list-style-type:none;
+    width: 180px;
+    height: 400px;
+    border: 1px solid #3f51b5;
+}
+
+.CastProfile {
+    width: 100%;
+    height: auto;
+}
+
+.Actor {
+color: #3f51b5;
+text-align: center;
+}
+
+.Character {
+    text-align: center;
+    font-size: small;
+}

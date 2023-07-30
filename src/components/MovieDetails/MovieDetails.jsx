@@ -3,6 +3,8 @@ import { useLocation, Link, useParams, Outlet } from 'react-router-dom';
 
 import { fetchMovieDetails } from 'components/Api/fetch-movie-details';
 
+import css from './MovieDetails.module.css'
+
 const MovieDetails = () => {
   const [movieInfo, setMovieInfo] = useState();
   const location = useLocation();
@@ -31,18 +33,19 @@ const MovieDetails = () => {
         <img
           src={posterPath}
           alt={movieInfo?.title}
-          width="360px"
-          height="auto"
+          // width="240px"
+          // height="auto"
+          className={css.PosterImg}
         ></img>
-        <h1>{movieInfo?.title}</h1>
-        <p>User Score: {movieInfo?.user_score}%</p>
-        <h2>Overview</h2>
-        <p>{movieInfo?.overview}</p>
-        <h3>Genres</h3>
-        <p>{movieInfo?.genres}</p>
+        <h1 className={css.MovieTitle}> {movieInfo?.title}</h1>
+        <p className={css.MovieText}>User Score: {movieInfo?.user_score}%</p>
+        <h2 className={css.MovieH2}>Overview</h2>
+        <p className={css.MovieText}>{movieInfo?.overview}</p>
+        <h3 className={css.MovieH3}>Genres</h3>
+        <p className={css.MovieText}>{movieInfo?.genres}</p>
       </div>
       <div>
-        <h3>Additional information:</h3>
+        <h3 className={css.MovieH3}>Additional information:</h3>
         <ul>
           <li>
             <Link to="cast">Cast </Link>

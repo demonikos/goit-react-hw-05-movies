@@ -59,10 +59,7 @@ const Movie = () => {
 
   return (
     <div>
-      <h1>Here will be movies</h1>
-
       <Searchbar onSubmit={onSubmit} />
-
       <ul>
         {searchFilmList !== undefined && (
           <MovieList filmList={searchFilmList} />
